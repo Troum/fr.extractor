@@ -1,12 +1,14 @@
 import httpCommon from "@/commons/http-common";
+import SuccessResponseInterface from "@/interfaces/SuccessResponseInterface";
 
 class APIService {
-  uploadPDF(data: any): Promise<any> {
-    return httpCommon.post('/upload', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
+  public async uploadPDF(data: any): Promise<SuccessResponseInterface> {
+      const response = await httpCommon.post<any>('/upload', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      return await response?.data
   }
 }
 

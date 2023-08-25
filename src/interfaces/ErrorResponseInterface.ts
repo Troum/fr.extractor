@@ -1,5 +1,9 @@
 export default interface ErrorResponseInterface {
-  success: boolean;
-  message: string;
-  trace: string;
+  response: {
+    data: {
+      success: boolean;
+      message: string;
+      trace: string;
+    }
+  }
 }
